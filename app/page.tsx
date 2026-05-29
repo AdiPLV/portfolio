@@ -116,7 +116,12 @@ export default function Page() {
               <span>Valenzuela City, Philippines</span>
             </div>
 
-            <div className="hero-social" aria-label="Quick links">
+            
+
+
+              
+          </div>
+          <div className="hero-social" aria-label="Quick links">
               <a className="social-link social-link-primary" href="/cv.pdf" target="_blank" rel="noreferrer">
                 Get CV
               </a>
@@ -130,10 +135,6 @@ export default function Page() {
                 LinkedIn
               </a>
             </div>
-
-
-              
-          </div>
         </div>
       </section>
 
