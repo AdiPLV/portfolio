@@ -116,18 +116,18 @@ export default function Page() {
               <span>Valenzuela City, Philippines</span>
             </div>
 
-            <div className="hero-social">
-              <a className="social-link" href="/cv.pdf" target="_blank" rel="noreferrer">
+            <div className="hero-social" aria-label="Quick links">
+              <a className="social-link social-link-primary" href="/cv.pdf" target="_blank" rel="noreferrer">
                 Get CV
+              </a>
+              <a className="social-link" href="#contact">
+                Send Email
               </a>
               <a className="social-link" href="https://github.com/AdiPLV" target="_blank" rel="noreferrer">
                 GitHub
               </a>
               <a className="social-link" href="https://www.linkedin.com/in/jeremycacho/" target="_blank" rel="noreferrer">
                 LinkedIn
-              </a>
-              <a className="social-link" href="#contact">
-                Send Email
               </a>
             </div>
 
