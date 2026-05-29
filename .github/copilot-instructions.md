@@ -1,0 +1,4 @@
+- Build a polished, non-templated portfolio with a distinctive visual direction.
+- Keep the site Vercel-friendly and prefer the Next.js App Router unless the user asks otherwise.
+- Use the user's portfolio details and present them as a real personal brand, not a generic starter page.
+- Prefer concise, maintainable code and validate with a production build after changes.
