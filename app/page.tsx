@@ -50,27 +50,27 @@ const projectPlaceholders = [
 const certificatePlaceholders = [
   {
     id: "c1",
-    title: "Certificate 01",
+    title: "School Certificate",
     file: "/certificates/cert1.png",
-    description: "Upload your first certificate image here.",
+    description: "Strategic Project Management: Aligning Projects with Organizational Goals",
   },
   {
     id: "c2",
-    title: "Certificate 02",
+    title: "School Certificate",
     file: "/certificates/cert2.png",
-    description: "Upload your second certificate image here.",
+    description: "Press Start to Level Up: Best Practices in Game Testing",
   },
   {
     id: "c3",
-    title: "Certificate 03",
+    title: "School Certificate",
     file: "/certificates/cert3.png",
-    description: "Upload your third certificate image here.",
+    description: "Launch Your Tech Career: The High-Demand Skillset of a Full Stack Web Developer",
   },
   {
     id: "c4",
-    title: "Certificate 04",
+    title: "School Certificate",
     file: "/certificates/cert4.png",
-    description: "Upload your fourth certificate image here.",
+    description: "Securing Connections: Strategies for Cybersecurity and Network Operations",
   },
 ];
 
