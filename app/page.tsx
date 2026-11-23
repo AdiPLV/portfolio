@@ -106,9 +106,7 @@ export default function Page() {
             <h1>Cacho, Jeremy Adrian T.</h1>
             <p className="subhead">BS Information Technology student</p>
             <p className="body-copy">
-              An IT student seeking an OJT opportunity where I can apply my
-              knowledge in software development, database management, and system analysis while
-              gaining real-world industry experience.
+              I&apos;m a student who enjoys building things that solve actual problems. Most of my experience comes from working on web-based systems, managing databases, and figuring out how different technologies work together.
             </p>
 
             <div className="meta-stack">
@@ -134,19 +132,37 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="content-grid content-grid-single" id="about">
-        <article className="section-block about-card">
-          <p className="section-label">About</p>
-          <h2>About me</h2>
+      <section className="about-feature" id="about">
+        <div className="about-visual">
+          <img
+            src="/aboutmeselfie.png"
+            alt="Jeremy Cacho taking a photo with a camera"
+            className="about-image"
+          />
+          <span className="about-mark">JAC</span>
+          <span className="about-pill about-pill-one">Web systems</span>
+          <span className="about-pill about-pill-two">Database</span>
+          <span className="about-pill about-pill-three">Creative tech</span>
+          <p className="about-visual-caption">
+            Building useful digital experiences with curiosity and intention.
+          </p>
+        </div>
+
+        <article className="about-copy">
+          <p className="section-label">A little about me</p>
+          <h2>Technology with a human side.</h2>
           <p>
-            I’m a BS Information Technology student focused on software development, database
-            management, and system analysis. I like practical work that is clear, structured, and
-            useful in real settings.
+            I’m Jeremy, a BS Information Technology student who enjoys turning ideas into
+            practical, well-structured systems. I’m especially interested in web development,
+            database management, and the details that make a product easier to use.
           </p>
           <p>
-            I also have experience with projects and seminars that helped me build confidence in
-            web systems, technical problem solving, and collaborative development.
+            From capstone work to collaborative projects, I’m always looking for ways to learn
+            faster, solve problems clearly, and create work that has a real purpose.
           </p>
+          <a className="about-link" href="#contact">
+            Let’s build something useful <span aria-hidden="true">↗</span>
+          </a>
         </article>
       </section>
 
