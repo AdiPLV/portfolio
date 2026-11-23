@@ -76,17 +76,21 @@ const certificatePlaceholders = [
 
 export default function Page() {
   return (
-    <main className="page-shell">
+    <main className="page-shell" id="top">
       <div className="ambient ambient-one" />
       <div className="ambient ambient-two" />
 
       <section className="hero">
         <header className="topbar">
-          <div className="brand">Cacho, Jeremy Adrian T.</div>
+          <a className="brand-lockup" href="#top" aria-label="Back to introduction">
+            <span className="brand-mark">JAC</span>
+            <span className="brand-name">Jeremy Cacho</span>
+          </a>
           <nav aria-label="Primary" className="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#certificates">Certificates</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
           </nav>
         </header>
@@ -129,6 +133,59 @@ export default function Page() {
 
               
           </div>
+        </div>
+      </section>
+
+      <section className="projects-section" id="projects">
+        <div className="section-heading">
+          <p className="section-label">Projects</p>
+          <h2>Recent Work</h2>
+        </div>
+
+        <div className="project-grid">
+          {projectPlaceholders.map((project) =>
+            project.url ? (
+              <a
+                className="project-card"
+                key={project.id}
+                href={project.url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Open ${project.title} in a new tab`}
+              >
+                <span className="project-tag">{project.tag}</span>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+              </a>
+            ) : (
+              <article className="project-card" key={project.id}>
+                <span className="project-tag">{project.tag}</span>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+              </article>
+            )
+          )}
+        </div>
+      </section>
+
+      <section className="certificates-section" id="certificates">
+        <div className="section-heading">
+          <p className="section-label">Certificates</p>
+          <h2>My Certificates</h2>
+        </div>
+
+        <div className="certificate-grid">
+          {certificatePlaceholders.map((certificate) => (
+            <article className="certificate-card" key={certificate.id}>
+              <div className="certificate-preview">
+                <a href={certificate.file} target="_blank" rel="noreferrer">
+                  <img src={certificate.file} alt={certificate.title} className="certificate-img" />
+                </a>
+              </div>
+              <h3>{certificate.title}</h3>
+              <p>{certificate.description}</p>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -183,59 +240,6 @@ export default function Page() {
                   </span>
                 ))}
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="projects-section" id="projects">
-        <div className="section-heading">
-          <p className="section-label">Projects</p>
-          <h2>Recent Work</h2>
-        </div>
-
-        <div className="project-grid">
-          {projectPlaceholders.map((project) =>
-            project.url ? (
-              <a
-                className="project-card"
-                key={project.id}
-                href={project.url}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`Open ${project.title} in a new tab`}
-              >
-                <span className="project-tag">{project.tag}</span>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-              </a>
-            ) : (
-              <article className="project-card" key={project.id}>
-                <span className="project-tag">{project.tag}</span>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-              </article>
-            )
-          )}
-        </div>
-      </section>
-
-      <section className="certificates-section" id="certificates">
-        <div className="section-heading">
-          <p className="section-label">Certificates</p>
-          <h2>My Certificates</h2>
-        </div>
-
-        <div className="certificate-grid">
-          {certificatePlaceholders.map((certificate) => (
-            <article className="certificate-card" key={certificate.id}>
-              <div className="certificate-preview">
-                <a href={certificate.file} target="_blank" rel="noreferrer">
-                  <img src={certificate.file} alt={certificate.title} className="certificate-img" />
-                </a>
-              </div>
-              <h3>{certificate.title}</h3>
-              <p>{certificate.description}</p>
             </article>
           ))}
         </div>

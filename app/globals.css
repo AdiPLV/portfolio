@@ -72,53 +72,80 @@ main {
 }
 
 .hero {
+  display: flex;
+  min-height: calc(100svh - 100px);
+  flex-direction: column;
   padding-top: 12px;
 }
 
 .topbar {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  margin-bottom: 92px;
+  margin-bottom: 72px;
+  padding: 10px 12px 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(15, 15, 15, 0.62);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(18px);
 }
 
-.brand {
-  font-size: 0.95rem;
-  letter-spacing: 0.14em;
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: max-content;
+}
+
+.brand-mark {
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: 850;
+  font-style: italic;
+  letter-spacing: -0.1em;
+  line-height: 1;
+}
+
+.brand-name {
+  color: #d7d0c8;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
 }
 
 .nav-links {
   display: flex;
-  gap: 28px;
-  color: var(--muted);
+  align-items: center;
+  gap: 4px;
+  color: #a7a7a7;
+  font-size: 0.78rem;
+  font-weight: 600;
 }
 
 .nav-links a {
   position: relative;
-  padding-bottom: 6px;
+  padding: 9px 13px;
+  border-radius: 999px;
+  transition: color 180ms ease, background 180ms ease;
 }
 
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 180ms ease;
+.nav-links a:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.09);
 }
 
-.nav-links a:hover::after {
-  transform: scaleX(1);
+.nav-links a:last-child {
+  color: #111;
+  background: #f1ece6;
 }
 
 .hero-grid {
+  flex: 1;
   display: grid;
   grid-template-columns: minmax(240px, 300px) 1fr;
   gap: 56px;
@@ -636,10 +663,16 @@ h1 {
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 44px;
+    border-radius: 20px;
+    padding: 14px;
   }
 
   .hero-grid {
     gap: 32px;
+  }
+
+  .hero {
+    min-height: auto;
   }
 
   .about-feature,
@@ -667,8 +700,12 @@ h1 {
   }
 
   .nav-links {
-    gap: 18px;
+    gap: 2px;
     flex-wrap: wrap;
+  }
+
+  .hero {
+    min-height: calc(100svh - 36px);
   }
 
   .glass-card,
