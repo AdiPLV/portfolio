@@ -84,7 +84,6 @@ export default function Page() {
         <header className="topbar">
           <a className="brand-lockup" href="#top" aria-label="Back to introduction">
             <span className="brand-mark">JAC</span>
-            <span className="brand-name">Jeremy Cacho</span>
           </a>
           <nav aria-label="Primary" className="nav-links">
             <a href="#projects">Projects</a>
@@ -106,12 +105,15 @@ export default function Page() {
           </div>
 
           <div className="hero-copy">
-            <p className="eyebrow">Portfolio</p>
+            <p className="eyebrow">Portfolio / 2026</p>
             <h1>Cacho, Jeremy Adrian T.</h1>
             <p className="subhead">BS Information Technology student</p>
-            <p className="body-copy">
-              I&apos;m a student who enjoys building things that solve actual problems. Most of my experience comes from working on web-based systems, managing databases, and figuring out how different technologies work together.
-            </p>
+
+            <div className="hero-focus" aria-label="Areas of focus">
+              <span>Web development</span>
+              <span>Database systems</span>
+              <span>Creative technology</span>
+            </div>
 
             <div className="meta-stack">
               <span>Pamantasan ng Lungsod ng Valenzuela • College</span>
