@@ -609,6 +609,12 @@ h1 {
   display: block;
   overflow: hidden;
   background: #211f1d;
+  cursor: pointer;
+  list-style: none;
+}
+
+.experience-image-link::-webkit-details-marker {
+  display: none;
 }
 
 .experience-image {
@@ -643,11 +649,38 @@ h1 {
   white-space: nowrap;
 }
 
-.experience-caption h3 {
-  margin: 0;
+.experience-caption-name {
   color: #f0ece7;
   font-size: 1.12rem;
+  font-weight: 700;
   letter-spacing: 0.025em;
+}
+
+.experience-toggle {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  place-items: center;
+  border: 1px solid rgba(241, 236, 230, 0.16);
+  border-radius: 50%;
+  color: #e2b18e;
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.experience-card[open] .experience-toggle {
+  transform: rotate(45deg);
+  background: rgba(201, 122, 69, 0.12);
+}
+
+.experience-description {
+  margin: 0;
+  padding: 0 16px 18px;
+  color: #aaa49d;
+  font-size: 0.93rem;
+  line-height: 1.65;
 }
 
 .experience-section::before,

@@ -127,25 +127,23 @@ export default function Page() {
 
         <div className="experience-grid">
           {ojtExperiences.map((experience) => (
-            <article className="experience-card" key={experience.name}>
-              <a
-                className="experience-image-link"
-                href={experience.image}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`View ${experience.name} OJT experience photo`}
-              >
+            <details className="experience-card" key={experience.name}>
+              <summary className="experience-image-link">
                 <img
                   src={experience.image}
                   alt={`${experience.name} OJT experience`}
                   className="experience-image"
                 />
-              </a>
-              <div className="experience-caption">
-                <span className="experience-tag">OJT Experience</span>
-                <h3>{experience.name}</h3>
-              </div>
-            </article>
+                <span className="experience-caption">
+                  <span className="experience-tag">OJT Experience</span>
+                  <span className="experience-caption-name">{experience.name}</span>
+                  <span className="experience-toggle" aria-hidden="true">+</span>
+                </span>
+              </summary>
+              <p className="experience-description">
+                Add your OJT experience details here. Replace this placeholder with your paragraph.
+              </p>
+            </details>
           ))}
         </div>
       </section>
