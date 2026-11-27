@@ -106,8 +106,8 @@ export default function Page() {
 
           <div className="hero-copy">
             <p className="eyebrow">Portfolio / 2026</p>
-            <h1>Cacho, Jeremy Adrian T.</h1>
-            <p className="subhead">BS Information Technology student</p>
+            <h1>Hi! I'm Jeremy Adrian</h1>
+            <p className="subhead">A BS Information Technology student</p>
 
             <div className="hero-focus" aria-label="Areas of focus">
               <span>Web development</span>
