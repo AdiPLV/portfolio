@@ -596,25 +596,26 @@ h1 {
   border-radius: 18px;
   background: linear-gradient(145deg, rgba(28, 27, 26, 0.82), rgba(16, 16, 16, 0.78));
   box-shadow: 0 18px 48px rgba(0, 0, 0, 0.2);
-  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
 }
 
 .experience-card:hover {
-  transform: translateY(-4px);
   border-color: rgba(201, 122, 69, 0.4);
   box-shadow: 0 24px 54px rgba(0, 0, 0, 0.32);
 }
 
 .experience-image-link {
+  position: relative;
   display: block;
+  width: 100%;
   overflow: hidden;
+  padding: 0;
+  border: 0;
   background: #211f1d;
   cursor: pointer;
-  list-style: none;
-}
-
-.experience-image-link::-webkit-details-marker {
-  display: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
 }
 
 .experience-image {
@@ -622,19 +623,19 @@ h1 {
   width: 100%;
   aspect-ratio: 1.9 / 1;
   object-fit: cover;
-  transition: transform 300ms ease;
-}
-
-.experience-card:hover .experience-image {
-  transform: scale(1.035);
 }
 
 .experience-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
   padding: 12px 16px 14px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.8));
 }
 
 .experience-tag {
@@ -670,82 +671,138 @@ h1 {
   transition: transform 180ms ease, background 180ms ease;
 }
 
-.experience-card[open] .experience-toggle {
-  transform: rotate(45deg);
-  background: rgba(201, 122, 69, 0.12);
+.experience-image-link:focus-visible {
+  outline: 2px solid #e2b18e;
+  outline-offset: -4px;
 }
 
-.experience-description {
-  margin: 0;
-  padding: 0 16px 18px;
-  color: #aaa49d;
-  font-size: 0.93rem;
-  line-height: 1.65;
-}
-
-html:has(.experience-card[open]) {
-  overflow: hidden;
-}
-
-.experience-card[open] {
+.experience-lightbox {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 20;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.experience-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: rgba(8, 8, 8, 0.58);
+  backdrop-filter: blur(16px);
+  animation: lightbox-backdrop-in 180ms ease-out both;
+}
+
+.experience-lightbox-panel {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
-  grid-template-rows: min(78svh, 720px);
-  width: min(1100px, calc(100vw - 48px));
-  max-height: calc(100svh - 48px);
-  padding: 0;
+  width: min(1120px, 100%);
+  max-height: min(82svh, 780px);
+  min-height: min(480px, calc(100svh - 48px));
   overflow: hidden;
   border: 1px solid rgba(241, 236, 230, 0.18);
   border-radius: 22px;
   background: #151413;
   box-shadow: 0 32px 100px rgba(0, 0, 0, 0.6);
-  transform: translate(-50%, -50%);
+  animation: lightbox-panel-in 220ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
 }
 
-.experience-card[open]::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: rgba(8, 8, 8, 0.58);
-  backdrop-filter: blur(16px);
+.experience-lightbox-visual {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  place-items: center;
+  padding: 24px;
+  background: #0c0c0c;
 }
 
-.experience-card[open] .experience-image-link {
+.experience-lightbox-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.experience-lightbox-copy {
   position: relative;
-  height: 100%;
-}
-
-.experience-card[open] .experience-image {
-  height: 100%;
-  aspect-ratio: auto;
-  object-fit: cover;
-}
-
-.experience-card[open] .experience-caption {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  justify-content: flex-start;
-  padding: 28px;
-  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.82));
-}
-
-.experience-card[open] .experience-description {
   display: flex;
-  align-items: center;
-  padding: clamp(28px, 5vw, 64px);
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(32px, 5vw, 64px);
   background:
     radial-gradient(circle at 100% 0%, rgba(201, 122, 69, 0.1), transparent 42%),
     #151413;
+}
+
+.experience-lightbox-back {
+  position: absolute;
+  top: 24px;
+  left: clamp(24px, 4vw, 48px);
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 13px;
+  border: 1px solid rgba(241, 236, 230, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #e8e1da;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.84rem;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.experience-lightbox-back:hover {
+  border-color: rgba(201, 122, 69, 0.48);
+  background: rgba(201, 122, 69, 0.1);
+}
+
+.experience-lightbox-copy .section-label {
+  margin-bottom: 12px;
+}
+
+.experience-lightbox-copy h2 {
+  margin: 0 0 18px;
+  color: #f0ece7;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  letter-spacing: -0.06em;
+}
+
+.experience-lightbox-description {
+  margin: 0;
   color: #c4bdb5;
   font-size: clamp(1rem, 1.4vw, 1.18rem);
   line-height: 1.8;
+}
+
+@keyframes lightbox-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes lightbox-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-lightbox-backdrop,
+  .experience-lightbox-panel {
+    animation: none;
+  }
 }
 
 .experience-section::before,
@@ -970,21 +1027,35 @@ html:has(.experience-card[open]) {
     grid-template-columns: 1fr;
   }
 
-  .experience-card[open] {
+  .experience-lightbox {
+    padding: 14px;
+  }
+
+  .experience-lightbox-panel {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: minmax(220px, 42svh) minmax(160px, auto);
-    width: calc(100vw - 28px);
+    grid-template-rows: minmax(0, 44svh) minmax(220px, auto);
+    width: 100%;
     max-height: calc(100svh - 28px);
-  }
-
-  .experience-card[open] .experience-image-link {
     min-height: 0;
-  }
-
-  .experience-card[open] .experience-description {
-    min-height: 0;
-    padding: 24px;
     overflow: auto;
+  }
+
+  .experience-lightbox-visual {
+    padding: 14px;
+  }
+
+  .experience-lightbox-image {
+    max-height: 42svh;
+  }
+
+  .experience-lightbox-copy {
+    min-height: 220px;
+    padding: 58px 24px 24px;
+  }
+
+  .experience-lightbox-back {
+    top: 14px;
+    left: 20px;
   }
 
   .cta-row,

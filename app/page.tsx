@@ -1,3 +1,5 @@
+import OjtExperienceGallery from "../components/OjtExperienceGallery";
+
 const technicalSkills = [
   {
     title: "Languages",
@@ -141,23 +143,7 @@ export default function Page() {
           <h2>Learning beyond the classroom.</h2>
         </div>
 
-        <div className="experience-grid">
-          {ojtExperiences.map((experience) => (
-            <details className="experience-card" key={experience.name}>
-              <summary className="experience-image-link">
-                <img
-                  src={experience.image}
-                  alt={`${experience.name} OJT experience`}
-                  className="experience-image"
-                />
-                <span className="experience-caption">
-                  <span className="experience-caption-name">{experience.name}</span>
-                </span>
-              </summary>
-              <p className="experience-description">{experience.description}</p>
-            </details>
-          ))}
-        </div>
+        <OjtExperienceGallery experiences={ojtExperiences} />
       </section>
 
       <section className="certificates-section" id="certificates">
