@@ -21,56 +21,37 @@ const technicalSkills = [
   },
 ];
 
-const projectPlaceholders = [
-  {
-    id: "p1",
-    title: "PRIS - PDL Web-Based Record Tracking System",
-    description:
-      "Designed and developed a PDL record tracking system that streamlines inmate information management, document processing, and report generation through a centralized web-based platform.",
-    tag: "Capstone Project",
-    url: "https://vcj-production.up.railway.app"
-  },
-  {
-    id: "p2",
-    title: "Lalamig Shop -  Web-based Store System",
-    description:
-      "A small Python application using Tkinter, PyMySQL, and MatplotlibIt a patient information management system designed to use CRUD to analyze patient vaccination and disease status, supporting data tracking and reporting.",
-    tag: "School Project",
-    url: "https://lalamig.vercel.app/homepage.html"
-  },
-  {
-    id: "p3",
-    title: "Project details coming soon",
-    description:
-      "Once you send the projects, each card can show what it does, what you built it with, and what problem it solved.",
-    tag: "Placeholder",
-  },
+const ojtExperiences = [
+  { name: "BATSU", image: "/ojt/BATSU.png" },
+  { name: "LCUP", image: "/ojt/LCUP.jpg" },
+  { name: "LPUB", image: "/ojt/LPUB.png" },
+  { name: "LPUC", image: "/ojt/LPUC.png" },
 ];
 
 const certificatePlaceholders = [
   {
     id: "c1",
-    title: "School Certificate",
+    title: "Strategic Project Management:",
     file: "/certificates/cert1.png",
-    description: "Strategic Project Management: Aligning Projects with Organizational Goals",
+    description: "Aligning Projects with Organizational Goals",
   },
   {
     id: "c2",
-    title: "School Certificate",
+    title: "Press Start to Level Up:",
     file: "/certificates/cert2.png",
-    description: "Press Start to Level Up: Best Practices in Game Testing",
+    description: "Best Practices in Game Testing",
   },
   {
     id: "c3",
-    title: "School Certificate",
+    title: "Launch Your Tech Career:",
     file: "/certificates/cert3.png",
-    description: "Launch Your Tech Career: The High-Demand Skillset of a Full Stack Web Developer",
+    description: "The High-Demand Skillset of a Full Stack Web Developer",
   },
   {
     id: "c4",
-    title: "School Certificate",
+    title: "Securing Connections:",
     file: "/certificates/cert4.png",
-    description: "Securing Connections: Strategies for Cybersecurity and Network Operations",
+    description: "Strategies for Cybersecurity and Network Operations",
   },
 ];
 
@@ -86,7 +67,7 @@ export default function Page() {
             <span className="brand-mark">JAC</span>
           </a>
           <nav aria-label="Primary" className="nav-links">
-            <a href="#projects">Projects</a>
+            <a href="#experience">OJT Experience</a>
             <a href="#certificates">Certificates</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
@@ -138,35 +119,34 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="projects-section" id="projects">
+      <section className="experience-section" id="experience">
         <div className="section-heading">
-          <p className="section-label">Projects</p>
-          <h2>Recent Work</h2>
+          <p className="section-label">OJT Experience</p>
+          <h2>Learning beyond the classroom.</h2>
         </div>
 
-        <div className="project-grid">
-          {projectPlaceholders.map((project) =>
-            project.url ? (
+        <div className="experience-grid">
+          {ojtExperiences.map((experience) => (
+            <article className="experience-card" key={experience.name}>
               <a
-                className="project-card"
-                key={project.id}
-                href={project.url}
+                className="experience-image-link"
+                href={experience.image}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={`Open ${project.title} in a new tab`}
+                aria-label={`View ${experience.name} OJT experience photo`}
               >
-                <span className="project-tag">{project.tag}</span>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
+                <img
+                  src={experience.image}
+                  alt={`${experience.name} OJT experience`}
+                  className="experience-image"
+                />
               </a>
-            ) : (
-              <article className="project-card" key={project.id}>
-                <span className="project-tag">{project.tag}</span>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-              </article>
-            )
-          )}
+              <div className="experience-caption">
+                <span className="experience-tag">OJT Experience</span>
+                <h3>{experience.name}</h3>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
