@@ -683,6 +683,71 @@ h1 {
   line-height: 1.65;
 }
 
+html:has(.experience-card[open]) {
+  overflow: hidden;
+}
+
+.experience-card[open] {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  grid-template-rows: min(78svh, 720px);
+  width: min(1100px, calc(100vw - 48px));
+  max-height: calc(100svh - 48px);
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(241, 236, 230, 0.18);
+  border-radius: 22px;
+  background: #151413;
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.6);
+  transform: translate(-50%, -50%);
+}
+
+.experience-card[open]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(8, 8, 8, 0.58);
+  backdrop-filter: blur(16px);
+}
+
+.experience-card[open] .experience-image-link {
+  position: relative;
+  height: 100%;
+}
+
+.experience-card[open] .experience-image {
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+
+.experience-card[open] .experience-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: flex-start;
+  padding: 28px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.82));
+}
+
+.experience-card[open] .experience-description {
+  display: flex;
+  align-items: center;
+  padding: clamp(28px, 5vw, 64px);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(201, 122, 69, 0.1), transparent 42%),
+    #151413;
+  color: #c4bdb5;
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  line-height: 1.8;
+}
+
 .experience-section::before,
 .certificates-section::before,
 .about-feature::before,
@@ -903,6 +968,23 @@ h1 {
 
   .experience-grid {
     grid-template-columns: 1fr;
+  }
+
+  .experience-card[open] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(220px, 42svh) minmax(160px, auto);
+    width: calc(100vw - 28px);
+    max-height: calc(100svh - 28px);
+  }
+
+  .experience-card[open] .experience-image-link {
+    min-height: 0;
+  }
+
+  .experience-card[open] .experience-description {
+    min-height: 0;
+    padding: 24px;
+    overflow: auto;
   }
 
   .cta-row,

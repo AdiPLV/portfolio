@@ -22,10 +22,26 @@ const technicalSkills = [
 ];
 
 const ojtExperiences = [
-  { name: "BATSU", image: "/ojt/BATSU.png" },
-  { name: "LCUP", image: "/ojt/LCUP.jpg" },
-  { name: "LPUB", image: "/ojt/LPUB.png" },
-  { name: "LPUC", image: "/ojt/LPUC.png" },
+  {
+    name: "BATSU",
+    image: "/ojt/BATSU.png",
+    description: "Add your BATSU OJT experience paragraph here.",
+  },
+  {
+    name: "LCUP",
+    image: "/ojt/LCUP.jpg",
+    description: "Add your LCUP OJT experience paragraph here.",
+  },
+  {
+    name: "LPUB",
+    image: "/ojt/LPUB.png",
+    description: "Add your LPUB OJT experience paragraph here.",
+  },
+  {
+    name: "DLSU Benilde",
+    image: "/ojt/LPUC.png",
+    description: "Add your LPUC OJT experience paragraph here.",
+  },
 ];
 
 const certificatePlaceholders = [
@@ -135,14 +151,10 @@ export default function Page() {
                   className="experience-image"
                 />
                 <span className="experience-caption">
-                  <span className="experience-tag">OJT Experience</span>
                   <span className="experience-caption-name">{experience.name}</span>
-                  <span className="experience-toggle" aria-hidden="true">+</span>
                 </span>
               </summary>
-              <p className="experience-description">
-                Add your OJT experience details here. Replace this placeholder with your paragraph.
-              </p>
+              <p className="experience-description">{experience.description}</p>
             </details>
           ))}
         </div>
